@@ -1,65 +1,77 @@
 <html>
-	<head>
-		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-		<style type="text/css">
-			.item {
-				padding: 12px;
-				background: #f9f9f9;
-				border: 1px solid #ddd;
-				margin-bottom: 24px
-			}
-		</style>
 
-	</head>
+<head>
+	<style type="text/css">
+		.item {
+			padding: 12px;
+			background: #f9f9f9;
+			border: 1px solid #ddd;
+			margin-bottom: 24px
+		}
+	</style>
+	<link rel="stylesheet" type="css" href="../semantic/dist/semantic.min.css">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+		integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<script src="../semantic/dist/semantic.min.js"></script>
 
-	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="#">Online Store</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-		    	<span class="navbar-toggler-icon"></span>
-		  	</button>
-		 	<div class="collapse navbar-collapse" id="navbarNav">
-			    <ul class="navbar-nav">
-			    	<li class="nav-item active">
-			        	<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-			    	</li>
-			    	<li class="nav-item">
-			        	<a class="nav-link" href="#">Features</a>
-			    	</li>
-			    </ul>
-		  	</div>
-		</nav>
+	<style type="text/css">
+		#topHeader {
+			height: 10%;
+			padding: 20px;
+		}
 
-		<div class="container">
-			<h1>Admin Page</h1>
-			<div class="row">
-				<div class="col-6">
-					<form action="/admin/additem" method="post">
-						<input type="text" name="name" placeholder="Name" /><br />
-						<input type="text" name="description" placeholder="Description" /><br />
-						<input type="text" name="price" placeholder="Price" /><br />
-						<input type="submit" value="Add Item">
-					</form>
-				</div>
+		#mainGrid {
+			padding: 20px;
+		}
 
-				<div class="col-6">
-					<h3>Current Items</h3>
-					<ol>
-						{{#items}}
-						<li>
-							<div class="item">
-								{{name}}<br />
-								<button>Add</button>
-							</div>
-						</li>
-						{{/items}}
+		#mainGrid>.column {
+			padding-left: 40px;
+			padding-right: 40px;
+		}
 
-					</ol>					
-				</div>
-			</div>
+		#personFeed>* {
+			margin-bottom: 10px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<div class="ui three item menu">
+		<a class="active item">Home</a>
+		<a class="item">Features</a>
+	</div>
+
+	<h1 class="ui header" id='topHeader'>
+        <i class="eye icon"></i>
+        Welcome to the Admin Page!
+    </h1>
+
+	<div class='ui two column grid' id='mainGrid'>
+		<div class='column'>
+			<form action="/admin/additem" method="post">
+				<input type="text" name="name" placeholder="Name" /><br />
+				<input type="text" name="description" placeholder="Description" /><br />
+				<input type="text" name="price" placeholder="Price" /><br />
+				<input type="submit" value="Add Item">
+			</form>
 		</div>
+		<div class='column'>
+			<h3>Current Items</h3>
+			<ol>
+				{{#items}}
+				<li>
+					<div class="item">
+						{{name}}<br />
+						<button>Add</button>
+					</div>
+				</li>
+				{{/items}}
 
+			</ol>
+		</div>
+	</div>
 
-	</body>
+</body>
 
 </html>

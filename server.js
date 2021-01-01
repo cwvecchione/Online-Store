@@ -3,6 +3,7 @@ const path = require('path')
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
+const dotenv = require("dotenv")
 
 const auth = require('./config/auth')(passport)
 const home = require('./routes/home')
@@ -11,7 +12,12 @@ const login = require('./routes/login')
 const account = require('./routes/account')
 const admin = require('./routes/admin')
 
-mongoose.connect('mongodb://localhost/sample-store', (err, data) => {
+dotenv.config()
+
+//const connectionString = `mongodb://localhost/sample-store`
+const connectionString = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.pqx5z.mongodb.net/inventory?retryWrites=true&w=majority`
+
+mongoose.connect(connectionString, (err, data) => {
 	if (err){
 		console.log('DB Connection Failed')
 		return
@@ -46,7 +52,7 @@ app.use((err, req, res, next) => {
 	res.render('error', {message: err.message})
 })
 
-app.listen(5000)
-console.log('App running on http://localhost:5000')
+app.listen(process.env.PORT || 4000);
+console.log('App running on http://localhost:4000')
 
 

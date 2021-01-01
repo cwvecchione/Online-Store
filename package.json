@@ -10,12 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "hjs": "0.0.6",
     "mailgun-js": "^0.18.0",
-    "mongoose": "^5.1.0",
+    "mongoose": "^5.11.8",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "semantic-ui": "^2.4.2"
   }
 }
