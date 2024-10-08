@@ -77,8 +77,8 @@ router.post('/resetpassword', (req, res, next) => {
 		user.save()
 
 		const mailgun = Mailgun({
-			apiKey: 'key-fa4ce184d539c7d972494bea80b49449',
-			domain: 'sandboxe7e494111c714208822e21ad788c0de3.mailgun.org'
+			apiKey: '',
+			domain: ''
 		})
 
 		const data = {
